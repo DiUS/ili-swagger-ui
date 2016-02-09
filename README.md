@@ -1,4 +1,18 @@
-# Swagger UI
+# Intelligent.li Swagger UI
+
+Swagger is used to view and run the intelligent.li API.  This fork contains only
+minimal changes to make deployment and default viewing easier.
+
+
+### Making Changes
+
+Should you need to make changes to the Swagger UI or you want to pull from
+upstream run the following commands to build and deploy:
+
+    $ gulp
+    $ gulp upload
+
+
 
 [![Build Status](https://travis-ci.org/swagger-api/swagger-ui.svg?branch=master)](https://travis-ci.org/swagger-api/swagger-ui)
 [![NPM version](https://badge.fury.io/js/swagger-ui.png)](http://badge.fury.io/js/swagger-ui)

@@ -16,6 +16,7 @@ var header = require('gulp-header');
 var order = require('gulp-order');
 var jshint = require('gulp-jshint');
 var pkg = require('./package.json');
+var awspublish = require('gulp-awspublish');
 
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -152,6 +153,19 @@ gulp.task('connect', function() {
     root: 'dist',
     livereload: true
   });
+});
+
+
+gulp.task('upload', function() {
+  var publisher = awspublish.create({
+    region: 'ap-southeast-2',
+    params: {
+      Bucket: 'swagger.intelligent.li'
+    }
+  });
+  return gulp.src('./dist/**/*')
+    .pipe(publisher.publish())
+    .pipe(awspublish.reporter())
 });
 
 function log(error) {
